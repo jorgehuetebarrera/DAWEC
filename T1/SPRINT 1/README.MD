@@ -36,7 +36,19 @@ Requisitos del Problema:
 Utilizar un bucle para mostrar números del 1 al 10.
 Modificar el bucle para mostrar solo números pares (números divisibles por 2) entre 1 y 10.
 Mostrar los números en la consola.
-# Diseño
+
+**Ejercicio 5:**
+
+Objetivo: Implementar bucles para repetir acciones múltiples veces.
+Descripción del Problema: Se necesita escribir un programa que utilice bucles para lograr lo siguiente:
+Mostrar en la consola los números del 1 al 10.
+Modificar el bucle para mostrar solo los números pares entre 1 y 10.
+Requisitos del Problema:
+
+Utilizar un bucle para mostrar números del 1 al 10.
+Modificar el bucle para mostrar solo números pares (números divisibles por 2) entre 1 y 10.
+Mostrar los números en la consola.
+#  🧑🏻‍💼Diseño
 A continuación, se presenta el diseño para cada uno de los ejercicios de manera individual:
 
 Diseño del Ejercicio 1:
@@ -64,7 +76,14 @@ Utilizar un bucle for para contar del 1 al 10 y mostrar cada número en la conso
 Modificar el bucle para incluir una condición que verifica si el número es par.
 Si el número es par (divisible por 2), mostrarlo en la consola.
 
-# Pruebas:
+Diseño del Ejercicio 5:
+Para resolver este problema, diseñamos un programa en JavaScript que sigue estos pasos:
+
+Utilizar un bucle for para contar desde 1 hasta 10 y mostrar cada número en la consola.
+Modificar el bucle para incluir una condición que verifica si el número es par (divisible por 2).
+Si el número es par, mostrarlo en la consola
+
+# 🧾Pruebas:
 **Ejercicio 1**
 
 ![captura1](./img/ejercio1.jpg)
@@ -76,7 +95,7 @@ Si el número es par (divisible por 2), mostrarlo en la consola.
 ![captura3](./img/ejercio3.jpg)
 **Ejercicio 4**
 
-![captura4](./img/ejercio4.gif)
+![captura4](./img/ejercicio4.gif)
 **Ejercicio 5**
 
 ![captura5](./img/ejercio5.jpg)
