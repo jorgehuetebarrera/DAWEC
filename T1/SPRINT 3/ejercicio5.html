@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordenar Tabla de Personas</title>
+    <style>
+        /* Estilos para la tabla */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<table id="tablaPersonas" border="1">
+    <thead>
+        <tr>
+            <th onclick="ordenarTabla('Nombre')">Nombre</th>
+            <th onclick="ordenarTabla('Edad')">Edad</th>
+            <th onclick="ordenarTabla('DNI')">DNI</th>
+            <th onclick="ordenarTabla('Tiene/No tiene hijos')">Tiene/No tiene hijos</th>
+            <th onclick="ordenarTabla('Fecha de nacimiento')">Fecha de nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Datos de la tabla se generarán desde JavaScript -->
+    </tbody>
+</table>
+
+<script src="ejercicio5.js"></script>
+</body>
+</html>

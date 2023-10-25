@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análisis de Datos de Estudiantes</title>
+    <meta charset="UTF-8">
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para los botones */
+        button {
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #888888;
+        }
+
+        button:hover {
+            background-color: #4a90e2;
+        }
+
+        /* Estilos para los botones específicos */
+        #mejoresMatematicas {
+            background-color: #27ae60;
+        }
+
+        #mejoresFisica {
+            background-color: #e74c3c;
+        }
+
+        #mejorHistoria {
+            background-color: #f39c12;
+        }
+
+        #mejoresBeca {
+            background-color: #9b59b6;
+        }
+
+        #destacadosMadridMatematicas {
+            background-color: #e67e22;
+        }
+    </style>
+    <script src="ejercicio6.js"></script>>
+</head>
+<body>
+    <h1>Funciones de Análisis de Datos de Estudiantes</h1>
+    <button onclick="mostrarMejoresEstudiantesMatematicas()">Mejores estudiantes en Matemáticas</button>
+    <button onclick="mostrarMejoresEstudiantesFisica()">Mejores estudiantes en Física</button>
+    <button onclick="mostrarMejorEstudianteHistoria()">Mejor estudiante de Historia</button>
+    <button onclick="mostrarMejoresEstudiantesBeca()">Mejores estudiantes con beca</button>
+    <button onclick="mostrarEstudiantesMadridMatematicas()">Estudiantes de Madrid destacados en Matemáticas</button>
+   <!-- Botón para identificar la asignatura con menor rendimiento -->
+   <button onclick="alert('Asignatura con menor rendimiento: ' + asignaturaMenorRendimiento())">Asignatura con Menor Rendimiento</button>
+
+   <!-- Botón para contar estudiantes sin beca en una ciudad -->
+   <button onclick="alert('Estudiantes sin beca en Madrid: ' + estudiantesSinBecaPorCiudad('Madrid'))">Estudiantes sin Beca en Madrid</button>
+
+   <!-- Botón para calcular el promedio de edad de estudiantes con beca -->
+   <button onclick="alert('Promedio de Edad de Estudiantes con Beca: ' + promedioEdadEstudiantesConBeca())">Promedio de Edad de Estudiantes con Beca</button>
+
+   <!-- Botón para encontrar a los 2 mejores estudiantes en promedio general -->
+   <button onclick="alert('Los 2 mejores estudiantes en promedio general son: ' + mejoresEstudiantes().map(estudiante => estudiante.nombre).join(', '))">Los 2 Mejores Estudiantes</button>
+
+   <!-- Botón para obtener los nombres de estudiantes que han aprobado todas las materias -->
+   <button onclick="alert('Estudiantes Aprobados en Todas las Materias: ' + estudiantesAprobados().join(', '))">Estudiantes Aprobados</button>
+
+   <!-- Coloca aquí tus otros elementos HTML -->
+</body>
+</html>
