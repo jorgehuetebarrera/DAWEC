@@ -19,8 +19,11 @@ function cadenaMasLarga(arr) {
     return { cadena: cadenaMasLarga, longitud: longitudMasLarga };
 }
 
-// Ejemplo de uso:
-const arrayDeCadenas = ["manzana", "plátano", "fresa", "kiwi"];
-const resultado = cadenaMasLarga(arrayDeCadenas);
-console.log("La cadena más larga es: " + resultado.cadena);
-console.log("Su longitud es: " + resultado.longitud);
+function encontrarCadenaMasLarga() {
+    const arrayDeCadenas = ["manzana", "plátano", "fresa", "kiwi"];
+    const resultado = cadenaMasLarga(arrayDeCadenas);
+
+    // Mostrar el resultado en la página
+    document.getElementById("cadenaMasLarga").textContent = resultado.cadena;
+    document.getElementById("longitudMasLarga").textContent = resultado.longitud;
+}
