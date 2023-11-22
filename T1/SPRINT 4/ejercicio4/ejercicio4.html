@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #container {
+            border: 2px solid #ff0000;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #reelContainer {
+            display: flex;
+            overflow-x: scroll;
+            margin-bottom: 20px;
+        }
+
+        .reel-card {
+            flex: 0 0 auto;
+            width: 150px;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .reel-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        #movieResults {
+            margin-bottom: 20px;
+        }
+
+        .movie-card {
+            margin-bottom: 20px;
+        }
+
+        #pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #pagination button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #pagination button.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Explorador de Películas</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Explorador de Películas</h1>
+        <input type="text" id="searchInput" placeholder="Buscar películas...">
+        <select id="genreSelect">
+            <option value="">Todos los géneros</option>
+        </select>
+        <button onclick="searchMovies()">Buscar</button>
+        <button onclick="filterByGenre()">Filtrar por Género</button>
+        <div id="reelContainer"></div>
+        <div id="movieResults"></div>
+        <div id="pagination"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
