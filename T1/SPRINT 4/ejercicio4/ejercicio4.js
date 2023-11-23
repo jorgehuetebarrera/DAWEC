@@ -26,7 +26,7 @@ function searchMovies() {
 
     makeRequest(url)
         .then(data => {
-            displayResultsWithPaginationAndColumns(data.results, 1, data.total_pages);
+            displayResultsWithPaginationAndReel(data.results, 1, data.total_pages);
         });
 }
 
@@ -61,13 +61,28 @@ function filterByGenre() {
 
     makeRequest(url)
         .then(data => {
-            displayResultsWithPaginationAndColumns(data.results, 1, data.total_pages);
+            displayResultsWithPaginationAndReel(data.results, 1, data.total_pages);
         });
 }
 
-function displayResultsWithPaginationAndColumns(results, page, totalPages) {
+function displayResultsWithPaginationAndReel(results, page, totalPages) {
     const movieResults = document.getElementById('movieResults');
+    const reelContainer = document.getElementById('reelContainer');
     movieResults.innerHTML = '';
+    reelContainer.innerHTML = '';
+
+    if (results.length > 0 && page === 1) {
+        const reelResults = results.slice(0, Math.min(10, results.length));
+
+        reelResults.forEach(movie => {
+            const reelCard = document.createElement('div');
+            reelCard.className = 'reel-card';
+            reelCard.innerHTML = `
+                <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" alt="${movie.title} Poster">
+            `;
+            reelContainer.appendChild(reelCard);
+        });
+    }
 
     const moviesPerPage = 20;
     const startIndex = (page - 1) * moviesPerPage;
@@ -129,7 +144,7 @@ function handlePagination(page) {
 
     makeRequest(url)
         .then(data => {
-            displayResultsWithPaginationAndColumns(data.results, page, data.total_pages);
+            displayResultsWithPaginationAndReel(data.results, page, data.total_pages);
         });
 }
 
