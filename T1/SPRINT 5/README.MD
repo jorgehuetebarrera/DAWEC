@@ -117,3 +117,96 @@ En resumen, JavaScript es esencial para el desarrollo web, mientras que TypeScri
 Ahora, cuando guardes un archivo TypeScript, Visual Studio Code debería compilar automáticamente los cambios. También puedes ejecutar manualmente la tarea "tsc: build - tsconfig.json" desde la paleta de comandos (`Ctrl+Shift+P` y selecciona "Run Task") para compilar tu proyecto.
 
 Esta guía proporciona una configuración básica. Puedes ajustar la configuración según tus necesidades específicas.
+
+# Fases de Resolución de Problemas
+
+## Ejercicio 1: Saludo en TypeScript
+
+### Análisis del Problema
+
+Se desea imprimir en la consola el saludo "Hola Mundo!" en TypeScript. El problema es simple y autocontenido.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará un script en TypeScript que imprima el saludo en la consola.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el diseño establecido en el punto anterior.
+
+## Ejercicio 2: Saludo Personalizado
+
+### Análisis del Problema
+
+Se busca solicitar al usuario que introduzca su nombre y edad, luego imprimir un saludo personalizado.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará un script en TypeScript que solicite nombre y edad, y luego imprima el saludo personalizado.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el diseño establecido en el punto anterior.
+
+## Ejercicio 3: Usuarios
+
+### Análisis del Problema
+
+Se requiere instanciar un array de usuarios e imprimir información sobre cada uno.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará un script en TypeScript que cree un array de usuarios y presente información sobre cada uno.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el diseño establecido en el punto anterior.
+
+## Ejercicio 4: Lista de Tareas
+
+### Análisis del Problema
+
+Se plantea gestionar una lista de tareas, añadiendo, eliminando y marcando tareas como importantes.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará un script en TypeScript que implemente las operaciones de gestión de la lista de tareas.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el diseño establecido en el punto anterior.
+
+## Ejercicio 5: Pokedex con PokeAPI
+
+### Análisis del Problema
+
+Se propone crear una Pokedex utilizando la PokeAPI para mostrar información de Pokémon.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará un script en TypeScript que interactúe con la PokeAPI y presente información detallada sobre Pokémon.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el diseño establecido en el punto anterior.
+
+## Ejercicio1:
+
+![1702575995525](image/README/1702575995525.png)
+
+Ejercicio2:
+![1702576020594](image/README/1702576020594.png)
+
+
+Ejercicio3:
+![1702576046281](image/README/1702576046281.png)
+
+
+Ejercicio 4:
+
+![1702576066934](image/README/1702576066934.png)
+
+
+Ejercicio5:
+
+![1702576082506](image/README/1702576082506.png)![1702576095729](image/README/1702576095729.png)

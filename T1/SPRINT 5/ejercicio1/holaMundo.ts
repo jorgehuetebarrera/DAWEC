@@ -1,7 +1,7 @@
 // holaMundo.ts
 
 function saludarHolaMundo(): void {
-  const mensaje: string = "¡Hola Mundo!";
+  const mensaje: string = "Hola mundo!";
   console.log(mensaje);
 
   // Mostrar el mensaje en el cuerpo del HTML

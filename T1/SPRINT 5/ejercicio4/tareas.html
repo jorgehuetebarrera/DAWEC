@@ -3,36 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List App</title>
+  <title>Lista de Tareas</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      margin: 20px;
       background-color: #f5f5f5;
-      color: #333;
-      transition: background-color 0.5s, color 0.5s;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    h1 {
-      color: #555;
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 20px;
     }
 
-    #tareas, #tareasImportantes {
-      max-width: 400px;
-      margin: 20px 0;
+    #contenedor {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    input[type="text"] {
-      width: 70%;
+    #nuevaTarea {
+      width: 100%;
       padding: 8px;
-      margin-right: 8px;
+      margin-bottom: 10px;
       box-sizing: border-box;
     }
 
+    .tarea {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      background-color: #fff;
+    }
+
+    .tarea button {
+      margin-left: 8px;
+    }
+
+    .tarea-importante {
+      border-color: #FF5722;
+      background-color: #FFEBEE;
+    }
+
     button {
+      padding: 8px;
       background-color: #4CAF50;
       color: white;
-      padding: 10px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -42,39 +73,29 @@
       background-color: #45a049;
     }
 
-    .tarea {
-      margin: 8px 0;
+    .eliminar-button {
+      background-color: #f44336;
     }
 
-    .tarea-importante {
-      color: #ff5733; /* Color naranja para las tareas importantes */
-    }
-
-    #modoOscuro {
-      margin-top: 20px;
+    .eliminar-button:hover {
+      background-color: #d32f2f;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Lista de Tareas</h1>
+  </header>
 
-  <h1>To-Do List</h1>
-
-  <div id="tareas">
-    <label for="nuevaTarea">Nueva Tarea:</label>
-    <input type="text" id="nuevaTarea" placeholder="Ingrese la tarea">
-    <button onclick="agregarTareaNormal()">Agregar a Tareas Normales</button>
-    <button onclick="agregarTareaImportante()">Agregar a Tareas Importantes</button>
+  <div id="contenedor">
+    <input type="text" id="nuevaTarea" placeholder="Nueva tarea">
+    <button onclick="agregarTareaNormal()">Agregar Tarea Normal</button>
+    <button onclick="agregarTareaImportante()">Agregar Tarea Importante</button>
 
     <div id="listaTareas"></div>
-  </div>
-
-  <div id="tareasImportantes">
-    <h2>Tareas Importantes</h2>
     <div id="listaTareasImportantes"></div>
   </div>
 
-  <button id="modoOscuro" onclick="toggleModoOscuro()">Cambiar Modo</button>
-
-  <script defer src="tareas.js"></script>
+  <script src="tareas.js"></script>
 </body>
 </html>
