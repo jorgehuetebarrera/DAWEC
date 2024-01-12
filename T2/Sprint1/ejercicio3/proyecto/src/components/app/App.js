@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
+import Contador from './contador';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hola Mundo con React</h1>
+    <div>
+      
+      <Contador />
     </div>
   );
-}
+};
 
 export default App;

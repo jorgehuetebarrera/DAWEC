@@ -1,12 +1,17 @@
 import React from 'react';
-import './App.css';
+import HolaMundo from './HolaMundo';
+import Saludo from './Saludo';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hola Mundo con React</h1>
+    <div>
+      <HolaMundo />
+      <Saludo nombre="Juan" />
+      <Saludo nombre="María" />
+      <Saludo nombre="Carlos" />
+      {}
     </div>
   );
-}
+};
 
 export default App;
