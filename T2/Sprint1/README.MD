@@ -20,8 +20,6 @@
 1.**Complejidad:** La complejidad de Angular puede ser abrumadora para proyectos pequeños o para desarrolladores nuevos.
 2.**Tamaño:** Las aplicaciones Angular pueden tener un tamaño de archivo más grande en comparación con las construidas con otras tecnologías, lo que puede afectar el tiempo de carga.
 
-
-
 **Elección entre React y Angular:**
 
 **Usar React cuando:**
@@ -37,3 +35,75 @@
 **Consideraciones Generales:**
 1.**Comunidad y Soporte:** Ambas tecnologías tienen comunidades activas, pero React tiende a ser más popular. Si la comunidad y el soporte son cruciales para tu proyecto, esto podría ser un factor a tener en cuenta.
 2.**Flexibilidad vs. Opinión:** React ofrece más flexibilidad, mientras que Angular proporciona una estructura más opinativa. La elección depende de tus preferencias y requisitos del proyecto.
+
+
+
+# Fases de Resolución de Problemas
+
+## Ejercicio 1: Hola Mundo en React y Componente con Props
+
+### Análisis del Problema
+
+El objetivo es crear un componente funcional llamado HolaMundo que renderice un elemento **`<h1>`** con el texto "¡Hola, Mundo!". Además, se debe crear un componente Saludo que acepte una prop nombre y renderice un párrafo con el saludo personalizado.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñarán dos componentes: HolaMundo y Saludo. HolaMundo renderizará el saludo general, y Saludo tomará un nombre como prop para renderizar un saludo personalizado.
+
+### Implementación del Diseño Propuesto
+
+Se implementarán los componentes HolaMundo y Saludo de acuerdo con el diseño propuesto.
+
+## Ejercicio 2: Lista de Elementos
+
+### Análisis del Problema
+
+Se requiere crear un componente ListaDeFrutas que renderice una lista de frutas, aceptando un array de frutas como prop.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará el componente ListaDeFrutas, que tomará un array de frutas y renderizará una lista de elementos con las imágenes de las frutas.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el componente ListaDeFrutas de acuerdo con el diseño propuesto.
+
+## Ejercicio 3: Contador de Clicks
+
+### Análisis del Problema
+
+Se debe crear un componente Contador que muestre un número y un botón, incrementando el número con cada clic.
+
+### Diseño de la Propuesta de Solución
+
+Se diseñará el componente Contador utilizando el hook useState para gestionar el estado del número.
+
+### Implementación del Diseño Propuesto
+
+Se implementará el componente Contador según el diseño propuesto.
+
+## Ejercicio 4: Aplicación de Tareas
+
+### Análisis del Problema
+
+Crear una aplicación de lista de tareas (ToDoApp) que permita añadir, completar y eliminar tareas.
+
+### Diseño de la Propuesta de Solución
+
+Diseñar una interfaz que incluya un campo de texto para nuevas tareas, una lista de tareas con checkbox para completar y botón para eliminar. Gestionar el estado con useState.
+
+### Implementación del Diseño Propuesto
+
+Implementar la aplicación ToDoApp siguiendo el diseño propuesto.
+
+## Ejercicio 5: Gestor de Tareas con Estados Complejos y Local Storage
+
+### Análisis del Problema
+
+Desarrollar una aplicación avanzada de gestión de tareas en React que permita categorizar, filtrar y persistir datos en Local Storage.
+
+### Diseño de la Propuesta de Solución
+
+Diseñar una interfaz que permita categorizar tareas, filtrar por categoría o estado, y utilizar Local Storage para persistencia.
+
+### Implementación del Diseño Propuesto
