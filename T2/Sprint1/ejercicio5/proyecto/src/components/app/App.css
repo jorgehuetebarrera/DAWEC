@@ -1,45 +1,38 @@
+.App {
+  text-align: center;
+}
 
-.tarea {
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin: 8px 0;
-  background-color: #f8f8f8;
-  padding: 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease-in-out;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.tarea:hover {
-  background-color: #e0e0e0;
+.App-link {
+  color: #61dafb;
 }
 
-.tarea input {
-  margin-right: 12px;
-}
-
-.tarea span {
-  flex-grow: 1;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-  transition: color 0.3s ease-in-out;
-}
-
-.tarea.completada {
-  text-decoration: line-through;
-  color: #aaa;
-}
-
-.tarea button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #e74c3c;
-  font-size: 16px;
-  transition: color 0.3s ease-in-out;
-}
-
-.tarea button:hover {
-  color: #c0392b;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

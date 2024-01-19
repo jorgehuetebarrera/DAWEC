@@ -1,13 +1,12 @@
-
 import React from 'react';
 import ToDoApp from './ToDoApp';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div>
       <ToDoApp />
     </div>
   );
-}
+};
 
 export default App;

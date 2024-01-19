@@ -1,142 +1,132 @@
-import React, { useState, useEffect } from 'react';
-import TareasList from './TareasList';
-import CategoriasList from './CategoriasList';
-import FormularioTarea from './FormularioTarea'; // Importa el componente FormularioTarea
-import Filtro from './Filtro';
-import './App.css';
+import React, { useState, useEffect, useReducer } from 'react';
+
+const initialState = {
+  tareas: [],
+  categorias: ['Trabajo', 'Personal', 'Estudio'],
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'AGREGAR_TAREA':
+      return {
+        ...state,
+        tareas: [...state.tareas, action.payload],
+      };
+    case 'TOGGLE_COMPLETADA':
+      return {
+        ...state,
+        tareas: state.tareas.map((tarea) =>
+          tarea.id === action.payload ? { ...tarea, completada: !tarea.completada } : tarea
+        ),
+      };
+    case 'EDITAR_TAREA':
+      return {
+        ...state,
+        tareas: state.tareas.map((tarea) =>
+          tarea.id === action.payload.id ? { ...tarea, texto: action.payload.texto } : tarea
+        ),
+      };
+    case 'ELIMINAR_TAREA':
+      return {
+        ...state,
+        tareas: state.tareas.filter((tarea) => tarea.id !== action.payload),
+      };
+    case 'AGREGAR_CATEGORIA':
+      return {
+        ...state,
+        categorias: [...state.categorias, action.payload],
+      };
+    default:
+      return state;
+  }
+};
+
+const useLocalStorageReducer = (key, reducer, initialState) => {
+  const [state, dispatch] = useReducer(reducer, initialState, () => {
+    const localData = localStorage.getItem(key);
+    return localData ? JSON.parse(localData) : initialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, dispatch];
+};
 
 const ToDoApp = () => {
-  const [tareas, setTareas] = useState([]);
-  const [categorias, setCategorias] = useState(['Trabajo', 'Personal', 'Estudio']);
-  const [filtro, setFiltro] = useState('Todas');
+  const [state, dispatch] = useLocalStorageReducer('tareasApp', reducer, initialState);
+  const [nuevaTarea, setNuevaTarea] = useState('');
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
+  const [nuevaCategoria, setNuevaCategoria] = useState('');
 
-  useEffect(() => {
-    // Cargar tareas y categorías desde Local Storage al iniciar
-    const storedTareas = JSON.parse(localStorage.getItem('tareas')) || [];
-    const storedCategorias = JSON.parse(localStorage.getItem('categorias')) || ['Trabajo', 'Personal', 'Estudio'];
-
-    setTareas(storedTareas);
-    setCategorias(storedCategorias);
-  }, []);
-
-  useEffect(() => {
-    // Guardar tareas y categorías en Local Storage cuando cambian
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-    localStorage.setItem('categorias', JSON.stringify(categorias));
-  }, [tareas, categorias]);
-
-  const agregarTarea = (nuevaTarea) => {
-    // Crear una copia del array de tareas actual
-    const nuevasTareas = [...tareas];
-
-    // Agregar la nueva tarea con un ID único
-    const nuevaTareaConID = {
+  const agregarTarea = (e) => {
+    e.preventDefault();
+    if (nuevaTarea.trim() === '' || categoriaSeleccionada.trim() === '') return;
+    const tareaNueva = {
       id: Date.now(),
-      texto: nuevaTarea.texto,
+      texto: nuevaTarea,
+      categoria: categoriaSeleccionada,
       completada: false,
-      categoria: nuevaTarea.categoria,
     };
-
-    nuevasTareas.push(nuevaTareaConID);
-
-    // Actualizar el estado de tareas con la nueva tarea
-    setTareas(nuevasTareas);
+    dispatch({ type: 'AGREGAR_TAREA', payload: tareaNueva });
+    setNuevaTarea('');
   };
 
-  const completarTarea = (id) => {
-    // Crear una copia del array de tareas actual
-    const tareasActualizadas = [...tareas];
-
-    // Encontrar la tarea con el ID proporcionado
-    const tareaSeleccionada = tareasActualizadas.find((tarea) => tarea.id === id);
-
-    // Si la tarea existe, actualizar su estado de completado
-    if (tareaSeleccionada) {
-      tareaSeleccionada.completada = !tareaSeleccionada.completada;
-
-      // Actualizar el estado de tareas con la tarea modificada
-      setTareas(tareasActualizadas);
-    }
-  };
-
-  const editarTarea = (id, nuevoTexto) => {
-    // Crear una copia del array de tareas actual
-    const tareasActualizadas = [...tareas];
-
-    // Encontrar la tarea con el ID proporcionado
-    const tareaSeleccionada = tareasActualizadas.find((tarea) => tarea.id === id);
-
-    // Si la tarea existe, actualizar su texto
-    if (tareaSeleccionada) {
-      tareaSeleccionada.texto = nuevoTexto;
-
-      // Actualizar el estado de tareas con la tarea modificada
-      setTareas(tareasActualizadas);
-    }
-  };
-
-  const eliminarTarea = (id) => {
-    // Filtrar las tareas para mantener solo aquellas con un ID diferente al proporcionado
-    const tareasFiltradas = tareas.filter((tarea) => tarea.id !== id);
-
-    // Actualizar el estado de tareas con las tareas filtradas
-    setTareas(tareasFiltradas);
-  };
-
-  const agregarCategoria = () => {
-    // Preguntar al usuario por el nombre de la nueva categoría
-    const nuevaCategoria = prompt("Ingrese el nombre de la nueva categoría:");
-
-    // Verificar si el usuario ingresó un nombre de categoría
-    if (nuevaCategoria) {
-      // Crear una copia del array de categorías actual
-      const categoriasActualizadas = [...categorias];
-
-      // Agregar la nueva categoría
-      categoriasActualizadas.push(nuevaCategoria);
-
-      // Actualizar el estado de categorías con la nueva categoría
-      setCategorias(categoriasActualizadas);
-    }
-  };
-
-  const seleccionarCategoria = (categoria) => {
-    // Actualizar el estado del filtro con la categoría seleccionada
-    setFiltro(categoria);
-  };
-
-  const filtrarTareas = () => {
-    // Filtrar las tareas según el estado y la categoría seleccionada
-    const tareasFiltradas = tareas.filter((tarea) => {
-      // Filtrar por estado (completada, no completada)
-      const filtroEstado = filtro === 'Completadas' ? tarea.completada : !tarea.completada;
-
-      // Filtrar por categoría
-      const filtroCategoria = filtro === 'Todas' || tarea.categoria === filtro;
-
-      // Combinar ambos filtros
-      return filtroEstado && filtroCategoria;
-    });
-
-    return tareasFiltradas;
+  const agregarCategoria = (e) => {
+    e.preventDefault();
+    if (nuevaCategoria.trim() === '') return;
+    dispatch({ type: 'AGREGAR_CATEGORIA', payload: nuevaCategoria });
+    setNuevaCategoria('');
   };
 
   return (
     <div>
-      <h2>Lista de Tareas</h2>
-      <CategoriasList
-        categorias={categorias}
-        agregarCategoria={agregarCategoria}
-        seleccionarCategoria={seleccionarCategoria}
-      />
-      <FormularioTarea onAgregarTarea={agregarTarea} /> {/* Agrega el componente FormularioTarea aquí */}
-      <Filtro opciones={['Todas', 'Completadas', ...categorias]} seleccionarOpcion={setFiltro} />
-      <TareasList
-        tareas={filtrarTareas()}
-        completarTarea={completarTarea}
-        editarTarea={editarTarea}
-        eliminarTarea={eliminarTarea}
-      />
+      <h1>Gestor de Tareas Avanzado</h1>
+      <form onSubmit={agregarTarea}>
+        <input
+          type="text"
+          value={nuevaTarea}
+          onChange={(e) => setNuevaTarea(e.target.value)}
+          placeholder="Introduce una tarea"
+        />
+        <select
+          value={categoriaSeleccionada}
+          onChange={(e) => setCategoriaSeleccionada(e.target.value)}
+        >
+          <option value="">Selecciona una categoría</option>
+          {state.categorias.map((categoria, index) => (
+            <option key={index} value={categoria}>
+              {categoria}
+            </option>
+          ))}
+        </select>
+        <button type="submit">Agregar Tarea</button>
+      </form>
+      <form onSubmit={agregarCategoria}>
+        <input
+          type="text"
+          value={nuevaCategoria}
+          onChange={(e) => setNuevaCategoria(e.target.value)}
+          placeholder="Añade una nueva categoría"
+        />
+        <button type="submit">Agregar Categoría</button>
+      </form>
+      <ul>
+        {state.tareas.map((tarea) => (
+          <li key={tarea.id} style={{ textDecoration: tarea.completada ? 'line-through' : 'none' }}>
+            {tarea.texto} ({tarea.categoria})
+            <input
+              type="checkbox"
+              checked={tarea.completada}
+              onChange={() => dispatch({ type: 'TOGGLE_COMPLETADA', payload: tarea.id })}
+            />
+            <button onClick={() => dispatch({ type: 'ELIMINAR_TAREA', payload: tarea.id })}>
+              Eliminar
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
