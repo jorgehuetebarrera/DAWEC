@@ -107,3 +107,25 @@ Desarrollar una aplicación avanzada de gestión de tareas en React que permita 
 Diseñar una interfaz que permita categorizar tareas, filtrar por categoría o estado, y utilizar Local Storage para persistencia.
 
 ### Implementación del Diseño Propuesto
+
+
+## Ejercicio 1:
+
+![1705689770370](image/README/1705689770370.png)
+
+## Ejercicio 2:
+
+![1705689863294](image/README/1705689863294.png)
+
+## Ejercicio 3:
+
+![1705690478752](image/README/1705690478752.png)
+
+## Ejercicio 4:
+
+![1705690732517](image/README/1705690732517.png)
+
+
+## Ejercicio 5:
+
+![1705690972082](image/README/1705690972082.png)
