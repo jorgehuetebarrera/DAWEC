@@ -1,0 +1,65 @@
+.GaleriaImagenesAvanzada {
+    text-align: center;
+  }
+  
+  .Busqueda {
+    margin-bottom: 20px;
+  }
+  
+  .GridContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  
+  .GridImagenes {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .Imagen {
+    flex: 0 0 auto;
+    cursor: pointer;
+  }
+  
+  .Imagen img {
+    width: 200px; /* Tamaño de las imágenes */
+    height: 150px; /* Altura de las imágenes */
+    object-fit: cover;
+    border: 2px solid #fff; /* Borde blanco para resaltar las imágenes */
+    border-radius: 5px;
+  }
+  
+  .BotonesDesplazamiento {
+    background-color: transparent;
+    border: none;
+    font-size: 24px; /* Tamaño de los botones de desplazamiento */
+    cursor: pointer;
+  }
+  
+  .Modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ContenidoModal {
+    position: relative;
+  }
+  
+  .CerrarModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+  }

@@ -1,11 +1,11 @@
 import React from 'react';
-import FormularioRegistro from './FormularioRegistro'; 
+import GaleriaImagenesAvanzada from './GaleriaImagenesAvanzada';
 
 const App = () => {
   return (
     <div>
      
-      <FormularioRegistro /> 
+      <GaleriaImagenesAvanzada /> 
     </div>
   );
 };
