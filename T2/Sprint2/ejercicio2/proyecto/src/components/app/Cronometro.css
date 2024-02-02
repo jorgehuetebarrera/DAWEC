@@ -1,0 +1,36 @@
+.Cronometro {
+    text-align: center;
+    margin-top: 150px; 
+    color: #f80e0e; 
+  }
+  
+  h2 {
+    font-size: 80px;
+    margin: 0;
+  }
+  
+  .Botones {
+    margin-top: 20px;
+  }
+  
+  button {
+    font-size: 22px;
+    padding: 15px 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #ff1493; 
+    color: black;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+    background-color: #999; 
+  }
+  
+  button:hover {
+    background-color: #61dafb; 
+    color: white;
+  }
