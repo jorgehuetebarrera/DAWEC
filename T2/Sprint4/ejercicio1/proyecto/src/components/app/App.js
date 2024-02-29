@@ -1,14 +1,13 @@
 import React from 'react';
-import ArbolDecisiones from './arbolDecisiones.js';
-import './App.css';
+import ArbolDecisiones from './ArbolDecisiones.js';
 
-const App = () => {
+function App() {
   return (
-    <div className="app">
-      <h1>Juego de Decisiones</h1>
+    <div className="App">
+      <h1>Sombras de la Noche</h1>
       <ArbolDecisiones />
     </div>
   );
-};
+}
 
 export default App;
